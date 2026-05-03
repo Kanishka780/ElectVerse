@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PollingStationFinder from "@/components/PollingStation";
 
 const topics = [
   "What are Elections",
@@ -13,7 +14,7 @@ const topics = [
 
 export default function Explore() {
   return (
-    <main className="min-h-screen bg-[#F9FFF6] text-[#1A1A1A] flex flex-col">
+    <main className="min-h-screen bg-[#F9FFF6] text-[#1A1A1A] flex flex-col pb-20">
 
       <div className="px-10 py-10 flex-1">
         <h1 className="text-4xl font-bold text-[#2E7D32] mb-10 text-center">
@@ -31,6 +32,9 @@ export default function Explore() {
             </Link>
           ))}
         </div>
+
+        {/* Google Maps Integration Section */}
+        <PollingStationFinder />
       </div>
     </main>
   );

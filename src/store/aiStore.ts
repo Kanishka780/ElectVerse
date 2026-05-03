@@ -6,6 +6,7 @@ type AIState = {
   messages: Message[];
   loading: boolean;
   ask: (input: string) => Promise<void>;
+  clearMessages: () => void;
 };
 
 export const useAIStore = create<AIState>((set, get) => ({
@@ -17,13 +18,28 @@ export const useAIStore = create<AIState>((set, get) => ({
   ],
   loading: false,
 
+  clearMessages: () => {
+    set({
+      messages: [
+        {
+          role: "ai",
+          text: "Chat cleared! How can I help you now? 🇮🇳",
+        },
+      ],
+    });
+  },
+
   ask: async (input: string) => {
     const state = get();
     if (state.loading) return;
     
-    // Don't repeat the exact same request immediately
-    const lastMsg = state.messages[state.messages.length - 1];
-    if (lastMsg?.role === "user" && lastMsg.text === input) return;
+    // Safety check: Empty or too long input
+    if (!input.trim() || input.length > 500) {
+      set({
+        messages: [...get().messages, { role: "ai", text: "❌ Please keep your question under 500 characters." }]
+      });
+      return;
+    }
 
     set({ loading: true });
 
@@ -36,7 +52,8 @@ export const useAIStore = create<AIState>((set, get) => ({
 
       const data = await res.json();
 
-      if (!res.ok || data.error) {
+      if (!res.ok) {
+        if (res.status === 429) throw new Error("Quota exceeded. Please wait a moment.");
         throw new Error(data.error || "AI request failed");
       }
 
@@ -54,7 +71,8 @@ export const useAIStore = create<AIState>((set, get) => ({
       set({
         messages: [
           ...get().messages,
-          { role: "ai", text: "⚠️ AI not responding. Check API key and restart server." },
+          { role: "user", text: input },
+          { role: "ai", text: `⚠️ ${err.message || "Something went wrong. Please try again."}` },
         ],
         loading: false,
       });
