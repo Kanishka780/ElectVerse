@@ -1,36 +1,215 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗳️ ElectVerse
 
-## Getting Started
+### AI-Powered Election Learning Platform
 
-First, run the development server:
+ElectVerse is an interactive web platform designed to help students understand how elections work in India through **guided learning, simulations, quizzes, and an AI-powered mentor**.
+
+---
+
+## 🚀 Live Idea
+
+> Learn elections not just by reading — but by **experiencing, practicing, and interacting with AI**.
+
+---
+
+## ✨ Features
+
+### 📚 Learn Elections
+
+* Step-by-step structured topics
+* Covers fundamentals like:
+
+  * Democracy
+  * Election Process
+  * Voter Eligibility
+  * Political Parties
+  * Electoral Roll
+* Easy-to-understand explanations
+
+---
+
+### 🧠 AI Election Mentor
+
+* Interactive AI assistant powered by **Google Gemini API**
+* Helps users:
+
+  * Understand concepts
+  * Ask doubts in real-time
+  * Get guided learning suggestions
+* Context-aware responses for election topics
+
+---
+
+### 🎮 Simulation Mode
+
+* Experience a **real-life election scenario**
+* Make decisions as a voter
+* Understand the impact of choices
+
+---
+
+### ❓ Quiz Yourself
+
+* Gamified quiz system
+* Instant feedback
+* XP-based engagement system
+
+---
+
+### 🧭 Structured Timeline
+
+* Visual representation of election process:
+
+  * Election Announcement
+  * Candidate Nomination
+  * Campaigning
+  * Voting Day
+  * Counting & Results
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* **Next.js (App Router)**
+* **React**
+* **Tailwind CSS**
+
+### Backend
+
+* **Next.js API Routes**
+
+### AI Integration
+
+* **Google Gemini API (v1)**
+
+---
+
+## 📂 Project Structure
+
+```bash
+electverse/
+│── src/
+│   ├── app/            # Pages & routing
+│   ├── components/     # UI components
+│   ├── store/          # State management
+│   ├── utils/          # API & helper functions
+│
+│── public/             # Static assets
+│── .env.local          # Environment variables (not pushed)
+│── README.md
+```
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Kanishka780/ElectVerse.git
+cd ElectVerse
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Add environment variables
+
+Create a `.env.local` file:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+---
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔐 Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+| Variable       | Description           |
+| -------------- | --------------------- |
+| GEMINI_API_KEY | Google Gemini API key |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧪 Key Functionalities
 
-## Deploy on Vercel
+* Real-time AI chat using Gemini API
+* Dynamic topic-based learning
+* Interactive UI with structured navigation
+* Responsive design for accessibility
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 Problem Solved
+
+Most students:
+
+* Memorize civics
+* Don’t *understand* elections
+
+👉 ElectVerse solves this by:
+
+* Making learning **interactive**
+* Adding **AI guidance**
+* Simulating **real-world scenarios**
+
+---
+
+## 🌟 Future Enhancements
+
+* Personalized learning paths
+* Voice-enabled AI mentor
+* Regional language support
+* Real election data integration
+* Leaderboard & achievements
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+```bash
+fork → clone → create branch → commit → push → PR
+```
+
+---
+
+## 📜 License
+
+This project is open-source and available under the **MIT License**.
+
+---
+
+## ⭐ Support
+
+If you like this project:
+
+* ⭐ Star the repo
+* 🍴 Fork it
+* 🧠 Share feedback
+
+---
+
+### 🚀 “Learn. Experience. Participate.”
+
+### — ElectVerse
