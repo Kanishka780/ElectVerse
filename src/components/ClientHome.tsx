@@ -30,30 +30,51 @@ export default function ClientHome() {
         </p>
 
         <div className="flex gap-6 justify-center flex-wrap max-w-4xl w-full">
-          <div onClick={() => {
-            ask("I want to learn about elections. Give me a quick overview of what I'll learn.");
-            router.push("/learn");
-          }} className="cursor-pointer flex-1 min-w-[250px]">
+          <div 
+            role="button"
+            tabIndex={0}
+            aria-label="Navigate to Learn Elections"
+            onClick={() => {
+              ask("I want to learn about elections. Give me a quick overview of what I'll learn.");
+              router.push("/learn");
+            }} 
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { ask("..."); router.push("/learn"); }}}
+            className="cursor-pointer flex-1 min-w-[250px]"
+          >
             <div className="p-6 bg-white rounded-xl shadow hover:scale-105 transition border border-gray-100 h-full">
               <div className="text-xl font-semibold mb-2">🧭 Learn Elections</div>
               <p className="text-sm text-gray-500">Start from basics and build understanding step-by-step.</p>
             </div>
           </div>
 
-          <div onClick={() => {
-            ask("I want to try the voting simulation. What should I know before I start?");
-            router.push("/simulate/voting-process");
-          }} className="cursor-pointer flex-1 min-w-[250px]">
+          <div 
+            role="button"
+            tabIndex={0}
+            aria-label="Try Voting Simulation"
+            onClick={() => {
+              ask("I want to try the voting simulation. What should I know before I start?");
+              router.push("/simulate/voting-process");
+            }} 
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { ask("..."); router.push("/simulate/voting-process"); }}}
+            className="cursor-pointer flex-1 min-w-[250px]"
+          >
             <div className="p-6 bg-white rounded-xl shadow hover:scale-105 transition border border-gray-100 h-full">
               <div className="text-xl font-semibold mb-2">🎮 Simulation</div>
               <p className="text-sm text-gray-500">Experience voting and practice your decisions.</p>
             </div>
           </div>
 
-          <div onClick={() => {
-            ask("I'm going to take an election quiz. Give me a quick tip to prepare.");
-            router.push("/quiz/democracy");
-          }} className="cursor-pointer flex-1 min-w-[250px]">
+          <div 
+            role="button"
+            tabIndex={0}
+            aria-label="Take Election Quiz"
+            onClick={() => {
+              ask("I'm going to take an election quiz. Give me a quick tip to prepare.");
+              router.push("/quiz/democracy");
+            }} 
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { ask("..."); router.push("/quiz/democracy"); }}}
+            className="cursor-pointer flex-1 min-w-[250px]"
+          >
             <div className="p-6 bg-white rounded-xl shadow hover:scale-105 transition border border-gray-100 h-full">
               <div className="text-xl font-semibold mb-2">🧪 Quiz Yourself</div>
               <p className="text-sm text-gray-500">Test your knowledge with gamified questions.</p>

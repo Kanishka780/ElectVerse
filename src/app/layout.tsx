@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AIPanel from "@/components/AIAvatar";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -16,20 +17,23 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-screen bg-gray-50">
+      <body className="min-h-screen bg-gray-50 flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="light">
           {/* Fixed top navbar */}
           <Navbar />
 
           {/* Split layout below navbar */}
-          <div className="flex pt-16 h-[calc(100vh-64px)]">
+          <div className="flex pt-16 flex-1 overflow-hidden">
 
             {/* LEFT — AI Panel */}
             <AIPanel />
 
             {/* RIGHT — Page content */}
-            <main className="flex-1 overflow-y-auto">
-              {children}
+            <main className="flex-1 overflow-y-auto flex flex-col">
+              <div className="flex-1">
+                {children}
+              </div>
+              <Footer />
             </main>
 
           </div>

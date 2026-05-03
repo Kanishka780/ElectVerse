@@ -70,19 +70,18 @@ ElectVerse is an interactive web platform designed to help students understand h
 
 ## 🛠️ Tech Stack
 
-### Frontend
-
+### Frontend & Standards
 * **Next.js (App Router)**
-* **React**
 * **Tailwind CSS**
-
-### Backend
-
-* **Next.js API Routes**
+* **TypeScript** (Strict Typing - No `any`)
+* **Accessibility**: WCAG 2.1 Compliant (ARIA roles, Screen Reader support)
+* **Security**: Strict Content Security Policy (CSP), HSTS, and XSS Protection headers.
+* **Testing**: Integration suite for AI routes and navigation flows.
 
 ### AI Integration
-
-* **Google Gemini API (v1)**
+* **Google Gemini API (1.5 Flash)**
+* **Google Cloud Run** (Optimized Container Deployment)
+* **Google Maps API** (Polling Station Integration)
 
 ---
 
@@ -92,13 +91,15 @@ ElectVerse is an interactive web platform designed to help students understand h
 electverse/
 │── src/
 │   ├── app/            # Pages & routing
-│   ├── components/     # UI components
-│   ├── store/          # State management
-│   ├── utils/          # API & helper functions
+│   ├── components/     # UI components (Atomic design)
+│   ├── store/          # Zustand State management
+│   ├── lib/            # Google Cloud Service Layer
+│   ├── __tests__/      # Integration testing suite
 │
 │── public/             # Static assets
-│── .env.local          # Environment variables (not pushed)
-│── README.md
+│── .env.local          # Environment variables
+│── next.config.ts      # Security headers & CSP
+│── Dockerfile          # Multi-stage production build
 ```
 
 ---

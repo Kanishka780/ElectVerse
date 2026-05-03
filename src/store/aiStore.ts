@@ -50,12 +50,14 @@ export const useAIStore = create<AIState>((set, get) => ({
         body: JSON.stringify({ prompt: input }),
       });
 
-      const data = await res.json();
+      const data = (await res.json()) as { text?: string; error?: string };
 
       if (!res.ok) {
         if (res.status === 429) throw new Error("Quota exceeded. Please wait a moment.");
         throw new Error(data.error || "AI request failed");
       }
+
+      if (!data.text) throw new Error("Empty response from AI");
 
       set({
         messages: [
@@ -66,13 +68,14 @@ export const useAIStore = create<AIState>((set, get) => ({
         loading: false,
       });
 
-    } catch (err: any) {
-      console.error("[AI ERROR]:", err.message);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      console.error("[AI ERROR]:", errorMessage);
       set({
         messages: [
           ...get().messages,
           { role: "user", text: input },
-          { role: "ai", text: `⚠️ ${err.message || "Something went wrong. Please try again."}` },
+          { role: "ai", text: `⚠️ ${errorMessage}` },
         ],
         loading: false,
       });

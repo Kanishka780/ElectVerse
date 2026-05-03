@@ -57,13 +57,13 @@ export default function PollingStationFinder() {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps/embed/v1/search?key=YOUR_MAPS_API_KEY&q=polling+station+near+${pincode}`}
+              src={`https://www.google.com/maps/embed/v1/search?key=${process.env.NEXT_PUBLIC_MAPS_API_KEY || ""}&q=polling+station+near+${pincode}`}
             ></iframe>
           ) : (
             <div className="text-center p-6">
-              <div className="text-4xl mb-2">🗺️</div>
+              <div className="text-4xl mb-2" aria-hidden="true">🗺️</div>
               <p className="text-gray-400 font-medium">Enter your pincode to see the map</p>
-              <p className="text-[10px] text-gray-300 mt-2 italic">* Requires Maps API Integration</p>
+              <p className="text-[10px] text-gray-300 mt-2 italic">* Requires active Google Maps Integration</p>
             </div>
           )}
         </div>
