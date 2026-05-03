@@ -17,11 +17,9 @@ export default function SimulationPage() {
   const current = data[step];
 
   const handleClick = (opt: any) => {
-    useAIStore.getState().ask({
-      mode: "simulation",
-      topic: slug as string,
-      userInput: `User selected: ${opt.label}. Is it correct? Provide feedback.`,
-    });
+    useAIStore.getState().ask(
+      `[SIMULATION: ${slug}] Step: ${current.question}. User selected: "${opt.label}". Provide immediate feedback on this choice and explain the correct electoral procedure.`
+    );
 
     if (opt.correct) {
       setTimeout(() => {
